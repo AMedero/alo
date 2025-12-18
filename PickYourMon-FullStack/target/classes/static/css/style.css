@@ -1,0 +1,615 @@
+/*---------------------------------------------------REST GENERAL---------------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* 1rem = 10px aprox (para facilitar cálculos) */
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Coiny", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  background: linear-gradient(to bottom, rgb(238, 193, 13) 0%, rgb(196, 59, 255) 50%, rgb(191, 25, 25) 100%);
+  color: rgb(100, 59, 162);
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Tipografía secundaria */
+.parrafo-home,
+.tarjeta-producto,
+.form button,
+.modal-contenido, /* Agregado para que el modal tenga letra legible */
+.toast {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+/*---------------------------------------------------HEADER---------------------------------------------------*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.header_logo {
+  font-size: 3rem;
+  font-weight: bold;
+  transition: transform 0.4s ease;
+}
+
+.header_logo a {
+  color: rgb(100, 59, 162);
+  text-decoration: none;
+  font-family: "Knewave", cursive;
+  font-weight: bolder;
+  transition: color 0.4s ease;
+  padding: 0 1rem;
+}
+
+.header_logo:hover,
+.header_logo a:hover {
+  transform: scale(1.25);
+  color: rgb(233, 17, 186);
+}
+
+.header_nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center; /* Alinea verticalmente los items */
+}
+
+.header_nav li {
+  font-size: 3rem;
+  font-weight: lighter;
+  transition: transform 0.4s ease;
+}
+
+.header_nav li:hover {
+  transform: scale(1.25);
+  cursor: pointer;
+}
+
+.header_nav a {
+  color: rgb(100, 59, 162);
+  text-decoration: none;
+  padding: 1rem;
+  display: grid;
+}
+
+/*---------------------------------------------------FOOTER---------------------------------------------------*/
+.footer {
+  background-color: rgb(23, 21, 38);
+  padding: 3rem 2rem;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  padding: 0 2rem;
+}
+
+.footer nav li {
+  transform: scale(1.5);
+  transition: transform 0.4s ease;
+}
+
+.footer nav li:hover {
+  transform: scale(1.25);
+  cursor: pointer;
+}
+
+.content-image {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  background: transparent;
+  transform: scale(1);
+  transition: transform 0.4s ease;
+}
+
+.footer nav li img:hover {
+  transform: scale(2.25);
+}
+
+.footer-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer hr {
+  width: 90%;
+  margin: 1rem auto;
+  border: none;
+  border-top: 1px solid rgba(245, 245, 245, 0.2);
+}
+
+.footer-autor {
+  text-align: center;
+  font-size: 1.4rem;
+  color: whitesmoke;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/*---------------------------------------------------HOME PRINCIPAL---------------------------------------------------*/
+main {
+  width: 90%;
+  max-width: 1200px;
+  flex: 1;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main h1 {
+  font-size: 6rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+main .parrafo-home {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  width: 70%;
+}
+
+.productos-home {
+  width: 100%;
+}
+
+.productos-home h2 {
+  text-align: center;
+  font-size: 3rem;
+  padding: 1rem;
+  margin: 3rem;
+}
+
+.contenedor-tarjetas {
+  width: 100%;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Tarjeta de producto */
+.tarjeta-producto {
+  background-color: whitesmoke;
+  color: #e0ab5d;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  gap: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.tarjeta-producto:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.tarjeta-producto img {
+  width: 100%;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.tarjeta-producto:hover img {
+  transform: scale(1.05);
+}
+
+.tarjeta-producto h3 {
+  font-size: 2.4rem;
+  margin-top: 1rem;
+}
+
+.tarjeta-producto p {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Botón agregar en la tarjeta */
+.btn-agregar {
+  background-color: #643ba2;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.4rem;
+  transition: background 0.3s;
+}
+
+.btn-agregar:hover {
+  background-color: #9f3cb3;
+}
+
+/*---------------------------------------------------CONTACTO---------------------------------------------------*/
+.seccion-contacto {
+  width: 100%;
+  margin: 2rem auto;
+}
+
+.titulo-contacto {
+  font-size: 4.8rem;
+  text-align: center;
+  margin: 2rem 0;
+  font-weight: normal;
+}
+
+.form {
+  background-color: #1d1a20;
+  padding: 5rem;
+  border-radius: 1rem;
+  width: 60rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.campo-form {
+  color: rgb(196, 23, 184);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.campo-form label {
+  font-size: 2.5rem;
+}
+
+.campo-form input,
+.campo-form textarea {
+  padding: 1rem;
+  font-size: 1.6rem;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.campo-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form button {
+  background-color: rgb(159, 60, 179);
+  color: #e5e6e8;
+  border: none;
+  padding: 1rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-family: "roboto", arial;
+}
+
+/*---------------------------------------------------MODAL (CARRITO)---------------------------------------------------*/
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none; /* Oculto por defecto */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-active {
+  display: flex;
+}
+
+.modal-contenido {
+  background-color: white;
+  width: 90%;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 80vh;
+  color: #333; /* Texto oscuro para legibilidad */
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.modal-header h2 {
+  font-size: 2.4rem;
+  color: #643ba2;
+}
+
+.btn-cerrar-modal {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.modal-body {
+  overflow-y: auto;
+  padding-right: 5px;
+  flex: 1; /* Para que ocupe espacio disponible */
+}
+
+/* Items del carrito */
+.item-carrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.info-producto-carrito {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex: 1;
+}
+
+.info-producto-carrito img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.info-producto-carrito p {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.controles-cantidad {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 10px;
+}
+
+.btn-cantidad {
+  background-color: #643ba2;
+  color: white;
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-eliminar-item {
+  background: none;
+  border: none;
+  color: #dc3545;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.modal-footer {
+  border-top: 2px solid #eee;
+  padding-top: 15px;
+}
+
+.precio-total {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: right;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.botones-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.btn-vaciar {
+  background-color: #ffcccc;
+  color: #cc0000;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.btn-finalizar {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+/*---------------------------------------------------NOTIFICACIONES (TOAST)---------------------------------------------------*/
+#toast-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  background-color: #28a745; /* Verde éxito */
+  color: white;
+  padding: 12px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  font-size: 1.4rem;
+  /* Animación */
+  animation: slideInLeft 0.5s, fadeOut 0.5s 2.5s forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/*---------------------------------------------------MEDIA QUERIES---------------------------------------------------*/
+
+/* Tablet y General Mobile (Menor a 768px) */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .header_logo,
+  .header_nav {
+    margin: 0;
+  }
+
+  .contenedor-tarjetas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tarjeta-producto {
+    width: 90%;
+    max-width: 30rem;
+  }
+
+  .form {
+    width: 90%;
+    min-width: auto;
+    padding: 2rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+/* Específico para el Modal en Móviles (Menor a 600px) */
+@media (max-width: 600px) {
+  .modal-contenido {
+    width: 95%;
+    margin: auto;
+    padding: 15px;
+  }
+
+  /* Botones del footer uno abajo del otro para facilitar toque */
+  .botones-footer {
+    flex-direction: column;
+  }
+
+  .btn-vaciar,
+  .btn-finalizar {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.6rem;
+  }
+
+  .info-producto-carrito img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .info-producto-carrito p {
+    font-size: 1.2rem;
+  }
+}
+
+/*---------------------------------------------------OVERLAY MENSAJE CENTRADO---------------------------------------------------*/
+.overlay-message {
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 3000;
+  animation: overlayFadeIn 0.15s ease-out;
+}
+
+.overlay-message__content {
+  background: rgb(34, 164, 57);
+  color: white;
+  padding: 1.2rem 2rem;
+  border-radius: 8px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  max-width: 90%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  transform-origin: center center;
+  animation: contentPop 0.15s ease-out;
+}
+
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes contentPop {
+  from { transform: scale(0.98); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes overlayFadeOut {
+  to { opacity: 0; visibility: hidden; }
+}

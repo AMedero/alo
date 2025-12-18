@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Knewave&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Contacto</title>
+</head>
+
+<body>
+    <header class="header">
+        <p class="header_logo">
+            <a href="./home.html">PickYourMon</a>
+        </p>
+        <nav class="header_nav">
+            <ul>
+                <li>
+                    <a href="./home.html">Inicio</a>
+                </li>
+                <li>
+                    <a href="./contacto.html">Contacto</a>
+                </li>
+                <li id="btn-login" style="display: block;">
+                    <a href="./login.html">Iniciar Sesión</a>
+                </li>
+                <li id="btn-logout" style="display: none;">
+                    <a href="#" onclick="logout()">Salir</a>
+                </li>
+                <li id="btn-admin" style="display: none;">
+                    <a href="./admin.html">Panel Admin</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="seccion-contacto">
+        <h1 class="titulo-contacto">¿Problemas con tu pedido?</h1>
+        <form class="form" action="https://formspree.io/f/xjkaogpe" method="POST">
+            <div class="campo-form">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required />
+            </div>
+
+            <div class="campo-form">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="campo-form">
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
+            </div>
+
+            <button type="submit">Enviar mensaje</button>
+        </form>
+    </main>
+
+    <footer class="footer">
+    <div class="footer-content">
+        <nav>
+            <ul>
+          <li><a href="https://api.whatsapp.com/send?phone=5491150500147" target="_blank" rel="noopener noreferrer"><img src="./images/extras/Whatsapp1.png" alt="WhatsApp" class="content-image"></a></li>
+          <li><a href="https://www.instagram.com/qr15714n" target="_blank" rel="noopener noreferrer"><img src="./images/extras/Instagram1.png" alt="Instagram" class="content-image"></a></li>
+          <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img src="./images/extras/Facebook1.png" alt="Facebook" class="content-image"></a></li>
+          <li><a href="https://www.linkedin.com/in/medero-adriel" target="_blank" rel="noopener noreferrer"><img src="./images/extras/LinkedIn1.png" alt="LinkedIn" class="content-image"></a></li>
+            </ul>
+        </nav>
+        <p>&copy; PickYouMon 2025. Todos los derechos reservados.</p>
+    </div>
+    <hr>
+    <p class="footer-autor">Sitio web en desarrollo por Medero Adriel Cristian :)</p>
+</footer>
+
+<script src="./js/navbar.js"></script>
+</body>
+
+</html>

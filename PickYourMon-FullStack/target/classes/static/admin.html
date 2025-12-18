@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Administración - PickYourMon</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilos específicos para el panel */
+        .admin-container { max-width: 800px; margin: 2rem auto; padding: 2rem; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header-admin { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 2px solid #eee; padding-bottom: 1rem; }
+        .btn-logout { background-color: #ff4444; color: white; border: none; padding: 5px 15px; border-radius: 4px; cursor: pointer; }
+        
+        /* Formulario de producto */
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input, .form-group textarea { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        .btn-save { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; }
+        .btn-save:hover { background-color: #218838; }
+        
+        .lista-productos { margin-top: 3rem; }
+        .producto-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem; border-bottom: 1px solid #eee; }
+        .btn-delete { background-color: #dc3545; color: white; border: none; padding: 5px 15px; border-radius: 4px; cursor: pointer; }
+        .btn-delete:hover { background-color: #c82333; }
+    </style>
+</head>
+<body>
+
+    <div class="admin-container">
+        <div class="header-admin">
+            <h2>⚡ Panel de Administración</h2>
+            <div>
+                <span id="adminName">Admin</span>
+                <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
+            </div>
+        </div>
+
+        <h3>Agregar Nuevo Producto</h3>
+        <form id="formProducto">
+            <div class="form-group">
+                <label>Nombre del Producto:</label>
+                <input type="text" id="nombre" required placeholder="Ej: Pikachu Figura">
+            </div>
+
+            <div class="form-group">
+                <label>Descripción:</label>
+                <textarea id="descripcion" rows="3" placeholder="Detalles del producto..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Precio ($):</label>
+                <input type="number" id="precio" required min="0" placeholder="15000">
+            </div>
+
+            <div class="form-group">
+                <label>Stock:</label>
+                <input type="number" id="stock" required min="0" value="10">
+            </div>
+
+            <div class="form-group">
+                <label>URL de Imagen:</label>
+                <input type="text" id="imagen" placeholder="Ej: img/pikachu.jpg">
+                <small style="color: #666;">Asegúrate de poner la imagen en la carpeta 'static/img' primero.</small>
+            </div>
+
+            <div class="form-group">
+                <label>ID Categoría:</label>
+                <input type="number" id="categoriaId" placeholder="Ej: 1 (Figuras), 2 (Ropa)...">
+            </div>
+
+            <button type="submit" class="btn-save">Guardar Producto</button>
+        </form>
+
+        <div class="lista-productos">
+            <h3>Productos Existentes</h3>
+            <div id="listaProductos"></div>
+        </div>
+        
+        <div style="margin-top: 20px;">
+            <a href="home.html">← Ir a la Tienda (Home)</a>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

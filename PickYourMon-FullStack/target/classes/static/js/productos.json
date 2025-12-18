@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "nombre": "Peluche Eevee",
+        "precio": 30.00,
+        "imagen": "./images/productos/eevee_1.jpg",
+        "descripcion": "El Pokémon evolución por excelencia y muy esponjoso"
+    },
+    {
+        "id": 2,
+        "nombre": "Peluche Flareon",
+        "precio": 27.94,
+        "imagen": "./images/productos/flareon_1.jpg",
+        "descripcion": "Evolución de tipo fuego"
+    },
+    {
+        "id": 3,
+        "nombre": "Peluche Vaporeon",
+        "precio": 32.99,
+        "imagen": "./images/productos/vaporeon_1.jpg",
+        "descripcion": "Evolución de tipo agua"
+    },
+    {
+        "id": 4,
+        "nombre": "Peluche Jolteon",
+        "precio": 24.99,
+        "imagen": "./images/productos/jolteon_1.jpg",
+        "descripcion": "Evolución de tipo eléctrico"
+    },
+    {
+        "id": 5,
+        "nombre": "Peluche Sylveon",
+        "precio": 33.54,
+        "imagen": "./images/productos/sylveon_1.jpg",
+        "descripcion": "Evolución de tipo hada"
+    },
+    {
+        "id": 6,
+        "nombre": "Peluche Umbreon",
+        "precio": 30.00,
+        "imagen": "./images/productos/umbreon_1.jpg",
+        "descripcion": "Evolución de tipo siniestro"
+    }
+]
