@@ -1,0 +1,15 @@
+spring.application.name=PickYourMon-FullStack
+spring.datasource.url=jdbc:mysql://localhost:3306/pickyourmon_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+spring.datasource.username=
+spring.datasource.password=
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# Comportamiento de Hibernate
+spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
+
+# A diferencia de h2, en MySQL dejamos que Hibernate actualice el esquema según las entidades
+spring.jpa.hibernate.ddl-auto=update
+
+# Allí al usar MySQL real, no inicializamos con scripts sino que dejamos que Hibernate maneje el esquema
+# Es decir, ignoro los archivos schema.sql y data.sql
+spring.sql.init.mode=never

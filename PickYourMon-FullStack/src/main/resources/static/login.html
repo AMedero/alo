@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión - PickYourMon</title>
+    <link rel="stylesheet" href="css/style.css"> <style>
+        /* Estilos rápidos para centrar el login */
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f4f4; }
+        .login-container { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 300px; text-align: center; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
+        button { width: 100%; padding: 10px; background-color: #ffcb05; border: none; font-weight: bold; cursor: pointer; }
+        button:hover { background-color: #c7a008; }
+        .error { color: red; font-size: 0.9rem; display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <img src="img/pikachu-logo.png" alt="Logo" style="width: 80px; margin-bottom: 1rem;"> <h2>Iniciar Sesión</h2>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Correo electrónico" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <p id="mensajeError" class="error">Credenciales incorrectas</p>
+            <button type="submit">Ingresar</button>
+        </form>
+        <p style="margin-top: 10px; font-size: 0.8rem;">
+            ¿No tienes cuenta? <a href="registro.html">Regístrate</a>
+        </p>
+        <p style="margin-top: 5px; font-size: 0.8rem;">
+            <a href="home.html">Volver al inicio</a>
+        </p>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>

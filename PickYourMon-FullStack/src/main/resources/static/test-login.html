@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Login</title>
+</head>
+<body>
+    <h2>Test de Login</h2>
+    <button onclick="testLogin()">Test con Ana</button>
+    <button onclick="testJorge()">Test con Jorge (Admin)</button>
+    <pre id="resultado"></pre>
+
+    <script>
+        async function testLogin() {
+            const resultado = document.getElementById("resultado");
+            
+            const credenciales = {
+                email: "ana@gmail.com",
+                password: "12345678"
+            };
+            
+            resultado.textContent = "Enviando: " + JSON.stringify(credenciales, null, 2);
+            
+            try {
+                const response = await fetch("/api/usuarios/login", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(credenciales)
+                });
+                
+                resultado.textContent += "\n\nStatus: " + response.status;
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    resultado.textContent += "\n\nRespuesta:\n" + JSON.stringify(data, null, 2);
+                } else {
+                    const error = await response.text();
+                    resultado.textContent += "\n\nError: " + error;
+                }
+            } catch (error) {
+                resultado.textContent += "\n\nException: " + error.message;
+            }
+        }
+
+        async function testJorge() {
+            const resultado = document.getElementById("resultado");
+            
+            const credenciales = {
+                email: "jorge@gmail.com",
+                password: "qwerty123"
+            };
+            
+            resultado.textContent = "Enviando: " + JSON.stringify(credenciales, null, 2);
+            
+            try {
+                const response = await fetch("/api/usuarios/login", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(credenciales)
+                });
+                
+                resultado.textContent += "\n\nStatus: " + response.status;
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    resultado.textContent += "\n\nRespuesta:\n" + JSON.stringify(data, null, 2);
+                } else {
+                    const error = await response.text();
+                    resultado.textContent += "\n\nError: " + error;
+                }
+            } catch (error) {
+                resultado.textContent += "\n\nException: " + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

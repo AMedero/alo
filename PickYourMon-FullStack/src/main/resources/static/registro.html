@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro - PickYourMon</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .registro-container { max-width: 400px; margin: 2rem auto; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+        input { width: 100%; padding: 10px; margin: 5px 0 15px 0; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background-color: #ffcb05; border: none; font-weight: bold; cursor: pointer; margin-top: 10px; border-radius: 5px; }
+        button:hover { background-color: #c7a008; }
+    </style>
+</head>
+<body>
+    <div class="registro-container">
+        <h2>Crear Cuenta</h2>
+        <form id="registroForm">
+            <label>Nombre:</label>
+            <input type="text" id="nombre" required>
+            
+            <label>Apellido:</label>
+            <input type="text" id="apellido" required>
+
+            <label>Email:</label>
+            <input type="email" id="email" required>
+
+            <label>Contraseña:</label>
+            <input type="password" id="password" required minlength="6">
+
+            <label>DNI (8 dígitos):</label>
+            <input type="text" id="dni" required pattern="\d{8}" placeholder="12345678">
+
+            <label>Fecha de Nacimiento:</label>
+            <input type="date" id="fechaNacimiento" required>
+
+            <label>Dirección:</label>
+            <input type="text" id="direccion" required placeholder="Calle, Número, Ciudad">
+
+            <button type="submit">Registrarme</button>
+        </form>
+        <p><a href="login.html">Ya tengo cuenta, quiero entrar</a></p>
+    </div>
+
+    <script>
+        document.getElementById("registroForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            
+            const usuario = {
+                nombre: document.getElementById("nombre").value,
+                apellido: document.getElementById("apellido").value,
+                email: document.getElementById("email").value,
+                password: document.getElementById("password").value,
+                dni: document.getElementById("dni").value,
+                fechaNacimiento: document.getElementById("fechaNacimiento").value,
+                direccion: document.getElementById("direccion").value
+            };
+
+            try {
+                const response = await fetch("/api/usuarios", { // POST al endpoint de crear
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(usuario)
+                });
+
+                if (response.ok) {
+                    alert("¡Registro exitoso! Ahora inicia sesión.");
+                    window.location.href = "login.html";
+                } else {
+                    const errorData = await response.json().catch(() => null);
+                    if (response.status === 400 && errorData) {
+                        alert("Error de validación: " + (errorData.message || "Revisa los datos ingresados"));
+                    } else if (response.status === 409) {
+                        alert("Error: El email ya está registrado.");
+                    } else {
+                        alert("Error al registrar. Código: " + response.status);
+                    }
+                }
+            } catch (error) {
+                console.error(error);
+                alert("Error de conexión");
+            }
+        });
+    </script>
+</body>
+</html>
